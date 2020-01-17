@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/backgroundMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        android:src="@drawable/background_main"
+        />
+
+    <TextView
+        android:id="@+id/textMainActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/zm_white"
+        android:text="@string/app_name"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+
+        <Button
+            android:id="@+id/btnLoginIn"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/style_btn_pressed_blue"
+            android:textColor="@color/zm_white"
+            android:text="LOG IN"
+            android:layout_marginBottom="10dp"
+            android:onClick="onBtnLogIn"
+            />
+
+        <Button
+            android:id="@+id/btnWithoutLogin"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/style_btn_pressed_blue"
+            android:textColor="@color/zm_white"
+            android:text="Without Login"
+            android:onClick="onBtnWithoutLogin"
+            />
+    </LinearLayout>
+</RelativeLayout>
