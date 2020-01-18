@@ -1,6 +1,7 @@
 package mango.zoom.mangozoom;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,11 +26,22 @@ public class JoinMeetingActivity
         setContentView(R.layout.activity_join_meeting);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     public void onBtnJoinMeeting(View v) {
         String meetingNo = ((EditText)findViewById(R.id.editMeetingNumber)).getText().toString().trim();
+        String displayName = ((EditText)findViewById(R.id.editDisplayName)).getText().toString();
         if(meetingNo.length() == 0) {
             Tools.ShowToast(this, "You need to enter a meeting number/ vanity id which you want to join.");
             return;
+        }
+        if (displayName.length() == 0) {
+            displayName = "Anonymous";
         }
         ZoomSDK zoomSDK = ZoomSDK.getInstance();
         if(!zoomSDK.isInitialized()) {
@@ -39,7 +51,7 @@ public class JoinMeetingActivity
         MeetingService meetingService = zoomSDK.getMeetingService();
         JoinMeetingOptions opts = new JoinMeetingOptions();
         JoinMeetingParams params = new JoinMeetingParams();
-        params.displayName = "Andrew Yarohovich";
+        params.displayName = displayName;
         params.meetingNo = meetingNo;
         meetingService.joinMeetingWithParams(this, params, opts);
     }
@@ -51,4 +63,5 @@ public class JoinMeetingActivity
                 this, String.format("Meeting status changed(status:%s, error:%d, internalError:%d)", meetingStatus, errorCode, internalErrorCode)
         );
     }
+
 }

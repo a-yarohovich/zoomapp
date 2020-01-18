@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:padding="10dp"
         >
@@ -46,16 +46,18 @@
             android:text="LOG IN"
             android:layout_marginBottom="10dp"
             android:onClick="onBtnLogIn"
+            android:visibility="invisible"
             />
 
         <Button
-            android:id="@+id/btnWithoutLogin"
+            android:id="@+id/btnJoinMeeting"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@drawable/style_btn_pressed_blue"
             android:textColor="@color/zm_white"
             android:text="Without Login"
             android:onClick="onBtnWithoutLogin"
+            android:visibility="invisible"
             />
     </LinearLayout>
 </RelativeLayout>
